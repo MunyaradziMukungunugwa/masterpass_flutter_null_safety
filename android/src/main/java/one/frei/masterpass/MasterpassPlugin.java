@@ -23,14 +23,14 @@ public class MasterpassPlugin implements FlutterPlugin, MethodChannel.MethodCall
     private FragmentActivity activity;
     private MethodChannel.Result result;
 
-    private MasterpassPlugin(FragmentActivity activity) {
-        this.activity = activity;
+    public MasterpassPlugin() {
     }
 
     public static void registerWith(PluginRegistry.Registrar registrar) {
         final MethodChannel channel = new MethodChannel(registrar.messenger(), "masterpass");
-        final MasterpassPlugin plugin = new MasterpassPlugin((FragmentActivity) registrar.activity());
+        final MasterpassPlugin plugin = new MasterpassPlugin();
 
+        plugin.activity = (FragmentActivity) registrar.activity();
         channel.setMethodCallHandler(plugin);
     }
 
