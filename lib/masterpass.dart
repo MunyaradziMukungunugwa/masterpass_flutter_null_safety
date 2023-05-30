@@ -39,7 +39,9 @@ class Masterpass {
       <String, dynamic>{"code": txnCode,"amount":amount, "system": _system, "key": _key},
     );
 
-    return CheckoutResult.fromMap(Map.from(paymentResultHashMap));
+    // return CheckoutResult.fromMap(Map.from(paymentResultHashMap));
+      return CheckoutResult.fromMap(Map<String, String>.from(paymentResultHashMap));
+
   }
 }
 
@@ -78,7 +80,7 @@ class UserCancelled extends CheckoutResult {}
 /// Models a [CheckoutResult] when the payment completed unsuccessfully.
 class PaymentFailed extends CheckoutResult {
   /// The [reference] for the unsuccessful payment.
-  final String reference;
+  final String? reference;
 
   PaymentFailed(this.reference);
 }
@@ -86,7 +88,7 @@ class PaymentFailed extends CheckoutResult {
 /// Models a [CheckoutResult] when the payment completed successfully.
 class PaymentSucceeded extends CheckoutResult {
   /// The [reference] for the successful payment.
-  final String reference;
+  final String? reference;
 
   PaymentSucceeded(this.reference);
 }
