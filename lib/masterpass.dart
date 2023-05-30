@@ -63,7 +63,9 @@ abstract class CheckoutResult {
       case "PAYMENT_SUCCEEDED":
         return PaymentSucceeded(map["reference"]);
       default:
-        return null;
+        // return null;
+        throw Exception("Unknown result code: ${map['code']}");
+
     }
   }
 }
