@@ -23,4 +23,4 @@ flutter:
         pluginClass: MasterpassPlugin
       ios:
         pluginClass: MasterpassPlugin
-  flutter_embedding_version: 2
+  # flutter_embedding_version: 2
