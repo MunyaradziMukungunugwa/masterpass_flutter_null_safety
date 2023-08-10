@@ -19,11 +19,12 @@ void main() {
     return masterpassChannelResponse(methodCall);
   });
 
-    Masterpass masterpass;
+   Masterpass masterpass = Masterpass(VALID_TEST_KEY, MasterpassSystem.TEST);
 
-  setUp(() {
-    masterpass = Masterpass(VALID_TEST_KEY, MasterpassSystem.TEST);
-  });
+setUp(() {
+  masterpass = Masterpass(VALID_TEST_KEY, MasterpassSystem.TEST);
+});
+
 
   test("Successful response yields PaymentSucceeded", () async {
     CheckoutResult result = await masterpass.checkout(TXN_CODE_FOR_SUCCESS, amount);
